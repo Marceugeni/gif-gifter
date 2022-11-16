@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import CardList from './components/CardList';
-import './App.css';
 import AddCategory from './components/AddCategory';
+import GifGrid from './components/GifGrid';
+import './App.css';
 
 function App() {
 const [categories, setCategories] = useState([]);
@@ -15,7 +15,9 @@ const addCategory = (addCategory) => {
     <div className="app-container">
      <h1>GifSmarter!🤣</h1>
      <AddCategory addCategory={ addCategory } />
-     <CardList categories={categories} />
+     {categories.map((category) => 
+        <GifGrid key={category} category={category} />
+        )}
     </div>
   );
 }
